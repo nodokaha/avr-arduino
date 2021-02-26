@@ -1,7 +1,7 @@
 all: main.hex
 
 write:
-	avrdude -F -V -c arduino -p ATMEGA328P -P /dev/ttyACM0 -b 115200 -U flash:w:main.hex
+	sudo avrdude -F -V -c arduino -p ATMEGA328P -P /dev/ttyUSB0 -b 115200 -U flash:w:main.hex
 
 main.hex: main main.o
 	avr-objcopy -O ihex -R .eeprom main main.hex
