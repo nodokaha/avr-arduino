@@ -11,6 +11,18 @@ main: main.o
 
 main.o:
 	avr-gcc -Os -DF_CPU=16000000UL -mmcu=atmega328p -c -o main.o main.c
+	
+new:
+	arduino-cli sketch new test
+	
+build:
+	arduino-cli compile -b arduino:avr:uno
+	
+deps:
+	arduino-cli core install arduino:avr
+	
+upload:
+	arduino-cli upload
 
 clean:
 	rm *.o *.hex main
